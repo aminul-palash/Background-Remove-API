@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <title>Process your image</title>
+ 
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+ 
+    <link href="../static/jumbotron-narrow.css" rel="stylesheet">
+
+    <link href="../static/style.css" rel="stylesheet">
+ 
+</head>
+ 
+<body>
+   
+ 
+    <div class="container">
+        <div class="header">
+            <nav>
+               
+            </nav>
+            
+        </div>
+        
+ 
+        <div class="container">
+            <div class="col-md-6">
+                
+                <div id="image-container">
+                    <img src=" {{url_for('send_image', filename=image_name)}} " style="width: 640px;height: 960px;">
+                </div>
+                
+            </div>
+            <div class="col-md-4">
+                <div class="row marketing">
+                    <div class="">
+                        <h4>Background Removal</h4> 
+                        <form id="form-flip" action="{{ url_for('flip') }}" method="POST" enctype="multipart/form-data"> 
+                          <input type="text" placeholder="R" min="0" name="red" required>   
+                          <input type="text" placeholder="G" min="0" name="green" required>  
+                          <input type="text" placeholder="B" min="0" name="blue" required><br>        
+                          <button id="btnFlipH" class="btn btn-lg btn-success" type="submit" name="mode" value="horizontal">Remove</button>
+                          <input type="text" class="hidden" name="image" value="{{ image_name }}">  
+                        </form>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+ 
+    </div>
+</body>
+ 
+</html>
+
