@@ -30,8 +30,8 @@ A deep learning approach to create passport size images by applying different de
 <td><b>After making in portrait</b></td>
 </tr>
 <tr align="center">
-<td><img src="images/2.png" alt="1.jpg" width="460" height="500"/></td>
-<td><img src="images/1.jpg" alt="test.png" width="460" height="500"/></td>
+<td><img src="images/2.png" alt="1.jpg" /></td>
+<td><img src="images/1.jpg" alt="test.png" /></td>
 </tr>
 <table>
 
