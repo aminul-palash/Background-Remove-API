@@ -17,8 +17,8 @@ A deep learning approach to create passport size images by applying different de
 - face alignment
 - croping image from neck to top in specific ration
  footage**
-
- img src="images/app.png" alt="1.jpg" width="460" height="500"/>
+ 
+ <img src="images/app.png" alt="1.jpg" />
 
 ## Sample results step by step
 
