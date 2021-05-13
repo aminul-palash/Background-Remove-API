@@ -1,43 +1,50 @@
-<!DOCTYPE html>
 <html lang="en">
- 
-<head>
-    <title>Python Flask Image Manipulation App</title>
- 
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
- 
-    <link href="../static/jumbotron-narrow.css" rel="stylesheet">
 
-    <link href="../static/style.css" rel="stylesheet">
-</head>
- 
-<body>
-    <div class="container">
-        <div class="header">
-            <nav>
-                <ul class="nav nav-pills pull-right">
-                    
-                   
-                </ul>
-            </nav> 
-            <h3 class="text-muted"></h3>
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Face Crop</title>
+        <link href="{{ url_for('static', filename='assets/css/bootstrap.css') }}" rel="stylesheet" type="text/css"/>
+    </head>
+
+    <body style="background-image:url({{ url_for('static', filename='Images/5.jpg') }});background-repeat: no-repeat;background-size : cover">
+        <div class="row">
+            <div class="col-md-5" style="margin-top:5%" >
+                <div style="width:60%;margin-left:25%">
+                    <img id="photo" style="width:100%;height:auto">
+                </div>
+            </div>
+            <div class="col-md-2" style="margin-top:5%" >
+                <form class="fileupload" id="fileupload">
+                    <input id="fileInput" type="file" name="files" style="display:none;" />
+                    <input type="button" value="Open" style="color:white;font:bold;font-size:20px;width:80%;height:40px;background-color:blue;box-shadow:aqua;margin-left:10%" onclick="document.getElementById('fileInput').click();" />
+                </form>
+                <div>
+                    <input type="submit" value="Start" onclick="Start()" style="color:white;font:bold;font-size:20px;width:80%;height:40px;background-color:blue;box-shadow:aqua;margin-left:10%;margin-top:5%" id="scan1_btn">
+                </div>
+                <div style="display:none;">
+                    <label style="margin-left: 10%;margin-top: 15%">Output Size:</label>
+                    <input type="text" style="width: 90%;margin-left: 5%" id="width" name="width" placeholder="Width(mm)" value="55"><br><br>
+                    <input type="text" style="width: 90%;margin-left: 5%" id="height" name="height" placeholder="Height(mm)" value="55"><br><br>
+                </div>
+                <div style="display:none;">
+                    <label style="margin-left: 10%;margin-top: 15%">Background Color:</label>
+                    <div class="row">
+                        <input type="text" class="input-inline" id="red" name="red" style="width: 25%;" placeholder="Red" value="255">
+                        <input type="text" class="input-inline" id="green" name="green" style="width: 25%;margin-left: 12%" placeholder="Green" value="255">
+                        <input type="text" class="input-inline" id="blue" name="blue" style="width: 25%;margin-left: 12%" placeholder="Blue" value="255">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5" style="margin-top:10%" >
+                <div style="width:60%;margin-left:25%">
+                    <img id = "result" style="margin-top:5px;margin-left:5px">
+                </div>
+            </div>
         </div>
- 
-        <div class="jumbotron">
-            <h1>Upload your image</h1>
-            <p class="lead"></p>
-	       <form id="upload-form" action="{{ url_for('upload') }}" method="POST" enctype="multipart/form-data">
-            <input id="file-picker" type="file" name="file" accept="image/*" class="hidden" onchange="this.form.submit()">
-            <label for="file-picker" class="btn btn-lg btn-success">Select file</label>
-		  </form>
-        </div>
- 
-        
-        <footer class="footer">
-          
-        </footer>
-    </div>
-</body>
- 
+
+
+    </body>
+    <script src="{{ url_for('static', filename='dist/js/bootstrap.min.js') }}" type="text/javascript"></script>
+    <script src="{{ url_for('static', filename='dist/js/jquery.min.js') }}" type="text/javascript"></script>
+    <script src="{{ url_for('static', filename='js/index.js') }}" type="text/javascript"></script>
 </html>
-

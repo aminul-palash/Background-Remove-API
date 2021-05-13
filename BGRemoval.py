@@ -7,7 +7,7 @@ import onnxruntime
 from onnx import helper
 from PIL import Image
 
-model_path = 'pretrained_model/modnet.onnx'
+model_path = 'pretrained_model/BGRNet.onnx'
 
 class BGRemove():
     # define hyper-parameters
@@ -41,7 +41,7 @@ class BGRemove():
     def file_load(self, image_path):
         
         im = cv2.imread(image_path)
-        # im = image_path
+        
         im = cv2.cvtColor(im, cv2.COLOR_BGR2RGB)
 
         # unify image channels to 3
@@ -85,31 +85,36 @@ class BGRemove():
         elif image.shape[2] == 4:
             image = image[:, :, 0:3]
         matte = np.repeat(np.asarray(matte)[:, :, None], 3, axis=2) / 255
-       
-        foreground = image * matte + np.full(image.shape, rgb) * (1 - matte)
+        
+        # foreground = image * matte + np.full(image.shape, rgb) * (1 - matte)
+        foreground = image * matte + np.full(image.shape, 255.0) * (1 - matte)
+        
         foreground = np.float32(foreground)
         foreground = cv2.cvtColor(foreground, cv2.COLOR_BGR2RGB)
         return foreground
        
     
     def inference(self,image_path,rgb=None):
-        
-        im = self.file_load(image_path)
+        im = cv2.cvtColor(image_path, cv2.COLOR_BGR2RGB)
+        # im = self.file_load(image_path)
         input_img = Image.fromarray(im)
         
         im,im_h, im_w = self.pre_process(im)
+        
         result = self.session.run([self.output_name], {self.input_name: im})
         matte = (np.squeeze(result[0]) * 255).astype('uint8')
         matte = cv2.resize(matte, dsize=(im_w, im_h), interpolation = cv2.INTER_AREA)
+       
         matte = Image.fromarray(matte)
         return self.combined_display(input_img, matte,rgb)
 
 if __name__ == '__main__':
     
     BG = BGRemove()
-    image_path = '10.jpg'
+    image_path = 'images/1.jpg'
     rgb = (255.0,0.0,0.0)
-    output = BG.inference(image_path,rgb)
+    img = cv2.imread(image_path)
+    output = BG.inference(img,rgb)
     cv2.imwrite('test.png',output)
     print(output.shape,type(output))
     
