@@ -43,8 +43,8 @@ A deep learning approach to create passport size images by applying different de
 <td><b>After fixing alignment</b></td>
 </tr>
 <tr align="center">
-<td><img src="images/1.jpg" alt="1.jpg" width="460" height="500"/></td>
-<td><img src="images/align.jpg" alt="test.png" width="460" height="500"/></td>
+<td><img src="images/1.jpg" alt="1.jpg" /></td>
+<td><img src="images/align.jpg" alt="test.png" /></td>
 </tr>
 <table>
 
@@ -57,8 +57,8 @@ A deep learning approach to create passport size images by applying different de
 <td><b>After removing the background</b></td>
 </tr>
 <tr align="center">
-<td><img src="images/1.jpg" alt="1.jpg" width="460" height="500"/></td>
-<td><img src="images/test.png" alt="test.png" width="460" height="500"/></td>
+<td><img src="images/1.jpg" alt="1.jpg" /></td>
+<td><img src="images/test.png" alt="test.png" /></td>
 </tr>
 <table>
 
@@ -69,8 +69,8 @@ A deep learning approach to create passport size images by applying different de
 <td><b>After making passport size</b></td>
 </tr>
 <tr align="center">
-<td><img src="images/test.png" alt="1.jpg" width="460" height="500"/></td>
-<td><img src="images/crop.jpg" alt="test.png" width="460" height="500"/></td>
+<td><img src="images/test.png" alt="1.jpg" /></td>
+<td><img src="images/crop.jpg" alt="test.png"/></td>
 </tr>
 <table>
 
