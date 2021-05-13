@@ -108,7 +108,7 @@ A deep learning approach to create passport size images by applying different de
   - `mtcnn`
 
 ### Pretrained Weights Download
-- [Weights Detail](pretrained/README.md)
+- download weight from referece project link.
 
 
 ## Inference
